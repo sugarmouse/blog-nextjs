@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import usePosts from "hooks/usePosts";
+import usePosts from "hooks/usePosts"
 
 type Post = {
   title: string;
