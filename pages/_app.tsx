@@ -12,7 +12,6 @@ import type { AppProps } from 'next/app';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <h1>all have</h1>
       <Head>
         <title>我的博客--ttttth</title>
         <meta name="viewport" content="width=device-width,initial"></meta>
