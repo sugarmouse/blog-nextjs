@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-type Post = {
-  title: string;
-  id: string;
-  date: string;
-};
+
 
 const usePosts = () => {
 
