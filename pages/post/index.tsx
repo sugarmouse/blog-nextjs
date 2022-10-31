@@ -1,7 +1,5 @@
-import type { NextPage } from "next";
-import { useEffect, useState } from "react";
-import axios from 'axios';
-import usePosts from "hooks/usePosts"
+import type { GetStaticProps, NextPage } from "next";
+import getPosts from "lib/posts";
 
 type Post = {
   title: string;
@@ -9,18 +7,31 @@ type Post = {
   date: string;
 };
 
-const PostsIndex: NextPage = () => {
+type Props = {
+  posts: Post[];
+};
 
-  const { isLoading, isEmpty, posts } = usePosts();
+/**
+ * 直接拿到数据，不需要前端通过 AJAX 请求获取数据
+ * @returns An object with a property called props.
+ */
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPosts();
+  return {
+    props: {
+      posts: JSON.parse(JSON.stringify(posts))
+    }
+  };
+};
 
+const PostsIndex: NextPage<Props> = (props) => {
+
+  const {posts} = props
   return (
     <>
       <h2>Post Index</h2>
       {
-        isLoading ?
-          <div>加载中</div> : isEmpty ?
-            <div>内容为空</div> :
-            posts.map(post => <div>{post.id}</div>)
+        posts.map(post=><h1>{post.title}</h1>)
       }
     </>
   );
