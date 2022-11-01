@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import getPosts from "lib/posts";
+import Link from 'next/link';
 
 type Post = {
   title: string;
@@ -26,12 +27,19 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const PostsIndex: NextPage<Props> = (props) => {
 
-  const {posts} = props
+  const { posts } = props;
   return (
     <>
       <h2>Post Index</h2>
       {
-        posts.map(post=><h1 key={post.id}>{post.title}</h1>)
+        posts.map(post => (
+          <div key={post.id}>
+            <h1 >{post.title}</h1>
+            <Link href="/post/[id]" as={`/post/${post.id}`}>
+              {post.title}
+            </Link>
+          </div>
+        ))
       }
     </>
   );
