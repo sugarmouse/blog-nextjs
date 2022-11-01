@@ -40,7 +40,6 @@ export default Index;
 export const getServerSideProps: GetServerSideProps = async (context: GetServerSidePropsContext) => {
   const ua = context.req.headers['user-agent'];
   const result = new UAParser(ua).getBrowser();
-  console.log(result);
   return {
     props: {
       browser: result
