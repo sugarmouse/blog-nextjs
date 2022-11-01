@@ -1,5 +1,6 @@
 import { getPost, getPostIds } from "lib/posts";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, NextPage } from "next";
+import { DOMAttributes } from "react";
 
 type Props = {
   post: Post;
@@ -9,14 +10,13 @@ type Props = {
 const PostsShow: NextPage<Props> = (props) => {
   const { post } = props;
 
+  const markedUp = () => ({ __html: post.htmlContent });
+
   return (
     <>
-      <div>文章详情</div>
       <h1>{post.title}</h1>
       <h2>{post.date}</h2>
-      <article>
-        {post.content}
-      </article>
+      <article dangerouslySetInnerHTML={markedUp()} />
     </>
   );
 };
