@@ -9,10 +9,10 @@ export const AppDataSource = new DataSource({
     username: "blog",
     password: "",
     database: "blog_development",
-    synchronize: true,
+    synchronize: false, // 同步数据库和 entity，生产环境绝对禁止
     logging: false,
     entities: [
-        
+
     ],
     migrations: [
 
