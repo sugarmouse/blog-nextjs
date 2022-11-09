@@ -12,10 +12,10 @@ export const AppDataSource = new DataSource({
     synchronize: false, // 同步数据库和 entity，生产环境绝对禁止
     logging: false,
     entities: [
-
+        "./entity/**/*.js"
     ],
     migrations: [
-
+        "./migration/**/*.js"
     ],
     subscribers: [
 
