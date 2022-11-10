@@ -1,5 +1,7 @@
 "use strict";
 
+console.log('data-source exec');
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -18,7 +20,7 @@ var AppDataSource = new _typeorm.DataSource({
   synchronize: false,
   // 同步数据库和 entity，生产环境绝对禁止
   logging: false,
-  entities: ["./entity/**/*.js"],
+  entities: ["./entity/**/*.j s"],
   migrations: ["./migration/**/*.js"],
   subscribers: []
 });

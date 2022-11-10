@@ -1,5 +1,4 @@
 import { AppDataSource } from "./data-source";
-import { User } from "./entity/User";
 
 AppDataSource.initialize().then(async (connection) => {
     console.log("Inserting a new user into the database...");
